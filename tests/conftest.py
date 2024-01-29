@@ -1,3 +1,6 @@
+from allure_commons.types import AttachmentType
+from selenium import webdriver
+import allure
 import pytest
 
 
@@ -13,3 +16,10 @@ def base_url():
 def search(request):
     search_request = request.config.getoption("search")
     return search_request
+
+@pytest.fixture(scope='function', autouse=True)
+def browser():
+    browser = webdriver.Chrome()
+    yield browser
+    browser.close()
+    browser.quit()
