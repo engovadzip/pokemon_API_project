@@ -21,6 +21,8 @@ def test_check_card_info_by_id(base_url):
         n = randint(0, page_size - 1)
         checked_card = response["data"][n]
         card_id = checked_card['id']
+        allure.attach(body=json.dumps(checked_card, indent=4, ensure_ascii=True), name="Random card info",
+                      attachment_type=AttachmentType.JSON, extension="json")
 
     with allure.step("Get card info by card id"):
         response = api_method.get_card_by_id(base_url, card_id)
@@ -31,8 +33,6 @@ def test_check_card_info_by_id(base_url):
     with allure.step("Check that card found by id is the same as card with its id in cards list"):
         response = response.json()
         card_found_by_id = response["data"]
-        allure.attach(body=json.dumps(checked_card, indent=4, ensure_ascii=True), name="Random card info",
-                      attachment_type=AttachmentType.JSON, extension="json")
         allure.attach(body=json.dumps(card_found_by_id, indent=4, ensure_ascii=True), name="Card found by id",
                       attachment_type=AttachmentType.JSON, extension="json")
         assert checked_card == card_found_by_id
