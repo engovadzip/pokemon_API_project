@@ -1,6 +1,6 @@
+from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import (ElementNotVisibleException, NoSuchElementException,
-                                        TimeoutException)
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -14,6 +14,17 @@ class BrowserActions:
         except NoSuchElementException:
             return False
         return True
+
+    def setup_browser(self):
+        browser = webdriver.Chrome()
+        return browser
+
+    def open_link(self, browser, link):
+        browser.get(link)
+
+    def quit_browser(self, browser):
+        browser.close()
+        browser.quit()
 
 
 browser_action = BrowserActions()
