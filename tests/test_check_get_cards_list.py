@@ -7,11 +7,11 @@ def test_check_get_cards(base_url):
         response = api_method.get_cards_list(base_url)
 
     with allure.step("Check response status code"):
-        assert response.status_code == 200
+        assert response.status_code == 200, f"Response status code is {response.status_code} instead of 200."
 
     with allure.step("Check response JSON content length"):
         response = response.json()
-        assert len(response) == 5
+        assert len(response) == 5, f"Response length is {len(response)} instead of 5."
 
     with allure.step("Check that page size is default (250 cards per page)"):
         page_size = response['pageSize']
