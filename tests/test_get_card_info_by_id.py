@@ -1,10 +1,8 @@
 from allure_commons.types import AttachmentType
 from pokemon_API_project_tests.utils.api_methods import api_method
 from pokemon_API_project_tests.utils.browser_actions import browser_action
-from pokemon_API_project_tests.utils.response_actions import response_action
 from random import randint
 import allure
-import json
 
 
 def test_get_card_by_id(base_url):
