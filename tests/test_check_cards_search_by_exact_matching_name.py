@@ -2,7 +2,6 @@ from allure_commons.types import AttachmentType
 from random import randint
 from pokemon_API_project_tests.utils.api_methods import api_method
 from pokemon_API_project_tests.utils.browser_actions import browser_action
-from selenium import webdriver
 import allure
 
 
