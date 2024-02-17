@@ -3,6 +3,7 @@ import json
 import logging
 import requests
 from allure_commons.types import AttachmentType
+from random import randint
 
 
 class APIMethods:
@@ -30,6 +31,21 @@ class APIMethods:
     def get_card_by_id(self, base_url, id):
         response = requests.get(url=base_url + f'/{id}')
         self.attach_logs_and_response_info(response)
+        return response
+
+    def open_random_page(self, base_url):
+        response = requests.get(url=base_url)
+        cards_list = response.json()
+        on_page = cards_list["count"]
+        total_cards = cards_list["totalCount"]
+        pages = total_cards // on_page
+        last_page_count = total_cards % on_page
+        if last_page_count > 0:
+            pages += 1
+        n = randint(0, pages - 1)
+        response = self.get_cards_list(base_url + f'?page={n}')
+        opened_page = response.json()["page"]
+        assert opened_page == n, f'Opened page is {opened_page} instead of {n}.'
         return response
 
 
