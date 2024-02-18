@@ -5,9 +5,9 @@ from pokemon_API_project_tests.utils.response_actions import response_action
 import allure
 
 
-def test_check_cards_search_by_exact_matching_name(base_url, search):
+def test_check_cards_search_by_exact_matching_name(cards_url, search):
     with allure.step("Get cards list by search request"):
-        response = api_method.search_cards_by_exact_matching_name(base_url, search)
+        response = api_method.search_cards_or_sets_by_exact_matching_name(cards_url, search)
 
     with allure.step("Check response status code"):
         assert response.status_code == 200, f"Response status code is {response.status_code} instead of 200."
