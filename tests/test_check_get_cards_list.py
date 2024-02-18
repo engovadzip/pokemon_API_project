@@ -2,6 +2,7 @@ from pokemon_API_project_tests.utils.api_methods import api_method
 import allure
 
 
+@allure.story("Check GET cards list")
 def test_check_get_cards_list(cards_url):
     with allure.step("Get cards list"):
         response = api_method.get_cards_or_sets_list(cards_url)

@@ -5,6 +5,7 @@ from random import randint
 import allure
 
 
+@allure.story("Check GET set by id")
 def test_get_set_by_id(sets_url):
     with allure.step("Get cards list"):
         response = api_method.get_cards_or_sets_list(sets_url)

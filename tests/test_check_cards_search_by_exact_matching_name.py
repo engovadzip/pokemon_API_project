@@ -5,6 +5,7 @@ from pokemon_API_project_tests.utils.response_actions import response_action
 import allure
 
 
+@allure.story("Check cards search by exact matching name")
 def test_check_cards_search_by_exact_matching_name(cards_url, search):
     with allure.step("Get cards list by search request"):
         response = api_method.search_cards_or_sets_by_exact_matching_name(cards_url, search)
