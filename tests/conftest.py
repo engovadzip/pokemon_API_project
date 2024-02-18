@@ -6,8 +6,14 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture(scope='function')
-def base_url():
+def cards_url():
     URL = 'https://api.pokemontcg.io/v2/cards'
+    return URL
+
+
+@pytest.fixture(scope='function')
+def sets_url():
+    URL = 'https://api.pokemontcg.io/v2/sets'
     return URL
 
 

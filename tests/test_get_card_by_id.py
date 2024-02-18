@@ -21,7 +21,7 @@ def test_get_card_by_id(base_url):
         response = api_method.open_random_page(base_url)
         response = response.json()
 
-    with allure.step("Get random card info"):
+    with allure.step("Get random card id"):
         n = randint(0, page_size - 1)
         checked_card = response["data"][n]
         card_id = checked_card['id']
