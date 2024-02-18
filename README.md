@@ -46,7 +46,7 @@ In this project we test [Pokémon TCG API](https://docs.pokemontcg.io/) ```GET``
 * Get card/set by its id.
 * Cards search by its exact matching name.
 
-But that's not all! For the cards search and getting card by its id there is a bonus: opening its images in browser with the following transferring its screenshot to Allure Report.
+But that's not all! For the cards search and getting card by its id there is a bonus: opening its images in [Google Chrome](https://www.google.com/intl/en_us/chrome/) browser with the following transferring its screenshot to Allure Report.
 
 ## Tests launch
 
