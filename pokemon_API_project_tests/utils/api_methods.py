@@ -14,10 +14,6 @@ class APIMethods:
                       extension='txt')
         allure.attach(body=json.dumps(response.json(), indent=4, ensure_ascii=True), name="Response body",
                       attachment_type=AttachmentType.JSON, extension="json")
-        logging.info("Request: " + response.request.url)
-        logging.info("Response code: " + str(response.status_code))
-        logging.info("Response: " + response.text)
-
     def get_cards_or_sets_list(self, base_url):
         response = requests.get(url=base_url)
         self.attach_logs_and_response_info(response)
