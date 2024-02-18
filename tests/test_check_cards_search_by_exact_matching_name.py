@@ -17,7 +17,7 @@ def test_check_cards_search_by_exact_matching_name(cards_url, search):
         response_action.check_search_results_exact_match_search_request(response, search)
 
     with allure.step("Open random card from search results in browser"):
-        image_link = response_action.get_random_card_link(response)
+        image_link = response_action.get_random_card_image_link(response)
 
         browser = browser_action.setup_browser()
         browser_action.open_link(browser, image_link)
@@ -25,7 +25,7 @@ def test_check_cards_search_by_exact_matching_name(cards_url, search):
         if browser_action.element_is_present(browser, '//img'):
             allure.attach(browser.get_screenshot_as_png(), name=f'One of the cards found by search request "{search}"',
                           attachment_type=AttachmentType.PNG)
-            allure.attach(image_link, name='Card link', attachment_type=AttachmentType.TEXT)
+            allure.attach(image_link, name='Card image link', attachment_type=AttachmentType.TEXT)
             browser_action.quit_browser(browser)
         else:
             allure.attach(browser.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)

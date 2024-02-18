@@ -48,7 +48,7 @@ def test_get_card_by_id(cards_url):
         if browser_action.element_is_present(browser, '//img'):
             allure.attach(browser.get_screenshot_as_png(), name=f'Card found by id "{card_id}"',
                           attachment_type=AttachmentType.PNG)
-            allure.attach(image_link, name='Card link', attachment_type=AttachmentType.TEXT)
+            allure.attach(image_link, name='Card image link', attachment_type=AttachmentType.TEXT)
             browser_action.quit_browser(browser)
         else:
             allure.attach(browser.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)

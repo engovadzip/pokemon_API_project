@@ -5,7 +5,7 @@ import json
 
 
 class ResponseActions:
-    def get_random_card_link(self, response):
+    def get_random_card_image_link(self, response):
         random_card = choice(response["data"])
         allure.attach(body=json.dumps(random_card, indent=4, ensure_ascii=True), name="Card info",
                       attachment_type=AttachmentType.JSON, extension="json")
