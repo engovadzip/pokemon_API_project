@@ -7,7 +7,7 @@ from random import randint
 
 
 class APIMethods:
-    def attach_logs_and_response_info(self, response):
+    def attach_response_info(self, response):
         allure.attach(body=response.request.url, name="Request URL", attachment_type=AttachmentType.TEXT)
         allure.attach(body=response.request.method, name="Request method", attachment_type=AttachmentType.TEXT)
         allure.attach(body=str(response.status_code), name="Response status code", attachment_type=AttachmentType.TEXT,
@@ -16,17 +16,17 @@ class APIMethods:
                       attachment_type=AttachmentType.JSON, extension="json")
     def get_cards_or_sets_list(self, base_url):
         response = requests.get(url=base_url)
-        self.attach_logs_and_response_info(response)
+        self.attach_response_info(response)
         return response
 
     def search_cards_or_sets_by_exact_matching_name(self, base_url, search_request):
         response = requests.get(url=base_url + f'?q=!name:{search_request}')
-        self.attach_logs_and_response_info(response)
+        self.attach_response_info(response)
         return response
 
     def get_card_or_set_by_id(self, base_url, id):
         response = requests.get(url=base_url + f'/{id}')
-        self.attach_logs_and_response_info(response)
+        self.attach_response_info(response)
         return response
 
     def open_random_page(self, base_url):
