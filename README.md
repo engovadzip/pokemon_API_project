@@ -109,7 +109,7 @@ After that, your system's default browser will open and there will be a [generat
 ### Search request settings
 
 By default, search request is "pikachu". You can set it using parameter ```--search``` in command line.  
-For example, if you want to search "hitmonlee" cards, run the following command:
+For example, if you want to find "hitmonlee" cards, run the following command:
 ```
 pytest --search=hitmonlee
 ```  
